@@ -3,7 +3,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex-shrink-0">
-          <router-link to="/" class="text-white font-script text-3xl">
+          <router-link to="/" class="text-white font-script text-3xl " style="color: #eab308;">
             AutoWaysee
           </router-link>
         </div>

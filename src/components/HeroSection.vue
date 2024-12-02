@@ -14,18 +14,20 @@
         <div
           v-for="(slide, index) in slides"
           :key="index"
-          class="w-full h-full flex-shrink-0 bg-cover bg-center transition-transform duration-[1500ms] ease-in-out"
+          class="relative w-full h-full flex-shrink-0 bg-cover bg-center transition-transform duration-[1500ms] ease-in-out"
           :class="{ 'scale-110': activeIndex === index, 'scale-100': activeIndex !== index }"
           :style="{ backgroundImage: `url(${slide})` }"
         ></div>
+         <!-- Overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
       </div>
 
       <!-- Text Content -->
       <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8">
-        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6" style="color: #eab308;">
           Drive with Confidence at AutoWaysee
         </h1>
-        <p class="text-lg md:text-xl text-gray-300 mb-8">
+        <p class="text-lg md:text-xl text-gray-300 mb-8" style="color:#f8fafc;">
           Experience unparalleled car care with our expert mechanics. From
           routine maintenance to advanced diagnostics, we ensure your vehicle is
           always road-ready. Trust AutoWaysee for quality and reliability.

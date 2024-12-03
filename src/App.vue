@@ -4,6 +4,7 @@
     <HeroSection /> 
     <ServiceGalary /> 
     <ServicesSection /> 
+    <Contact /> 
     <Footer /> 
   </div>
 </template>
@@ -13,6 +14,8 @@ import Navigation from './components/Navigation.vue'
 import HeroSection from './components/HeroSection.vue'
 import ServiceGalary from './components/ServiceGalary.vue'
 import ServicesSection from './components/ServicesSection.vue'
+import Contact from './components/Contact.vue'
+import Location from './components/Location.vue'
 import Footer from './components/Footer.vue'
 </script>
 

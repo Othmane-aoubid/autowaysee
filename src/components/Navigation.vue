@@ -72,10 +72,8 @@ import { MenuIcon, XIcon } from "lucide-vue-next";
 const isOpen = ref(false);
 
 const menuItems = [
-  { name: "Car Services", path: "/services" },
-  { name: "Maintenance", path: "/maintenance" },
-  { name: "Repairs", path: "/repairs" },
-  { name: "Routine Care", path: "/routine-care" },
+  { name: "Car Services", path: "/CarServices" },
+  { name: "Repairs", path: "/Repair" },
 ];
 </script>
 

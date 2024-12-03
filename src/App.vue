@@ -1,21 +1,16 @@
 <template>
   <div class="min-h-screen bg-gray-100">
     <Navigation /> 
-    <HeroSection /> 
-    <ServiceGalary /> 
-    <ServicesSection /> 
-    <Contact /> 
+    <!-- about me Section -->
+    <div class="bg-white">
+      <router-view />
+    </div>
     <Footer /> 
   </div>
 </template>
 
 <script setup>
 import Navigation from './components/Navigation.vue'
-import HeroSection from './components/HeroSection.vue'
-import ServiceGalary from './components/ServiceGalary.vue'
-import ServicesSection from './components/ServicesSection.vue'
-import Contact from './components/Contact.vue'
-import Location from './components/Location.vue'
 import Footer from './components/Footer.vue'
 </script>
 

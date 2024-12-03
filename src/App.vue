@@ -2,13 +2,18 @@
   <div class="min-h-screen bg-gray-100">
     <Navigation /> 
     <HeroSection /> 
-    
+    <ServiceGalary /> 
+    <ServicesSection /> 
+    <Footer /> 
   </div>
 </template>
 
 <script setup>
 import Navigation from './components/Navigation.vue'
 import HeroSection from './components/HeroSection.vue'
+import ServiceGalary from './components/ServiceGalary.vue'
+import ServicesSection from './components/ServicesSection.vue'
+import Footer from './components/Footer.vue'
 </script>
 
 <style>

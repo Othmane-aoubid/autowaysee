@@ -74,6 +74,8 @@ const isOpen = ref(false);
 const menuItems = [
   { name: "Car Services", path: "/CarServices" },
   { name: "Repairs", path: "/Repair" },
+  { name: "Purchase", path: "/Purchase" },
+  { name: "Book Appointement", path: "/BookAppointement" },
 ];
 </script>
 

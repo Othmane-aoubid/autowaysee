@@ -24,6 +24,16 @@ const router = createRouter({
       name: 'Repair',
       component: () => import('../views/RepairView.vue'),
     },
+    {
+      path: '/Purchase',
+      name: 'Purchase',
+      component: () => import('../views/Purchase.vue'),
+    },
+    {
+      path: '/BookAppointement',
+      name: 'BookAppointement',
+      component: () => import('../views/BookAppointement.vue'),
+    },
   ],
 })
 

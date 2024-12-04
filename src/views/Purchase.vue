@@ -138,6 +138,7 @@
             class="w-full bg-eab308 text-white py-3 rounded-md font-semibold hover:bg-opacity-90 transition-colors mt-6"
             :disabled="cart.length === 0"
             :class="{ 'opacity-50 cursor-not-allowed': cart.length === 0 }"
+            @click="proceedToCheckout"
           >
             Proceed to Checkout
           </button>
@@ -153,6 +154,9 @@ import OilFilter from "../assets/images/item2.webp"
 import BreakPads from "../assets/images/item3.webp"
 import AirFilter from "../assets/images/item4.webp"
 import SparksPlug from "../assets/images/item1.webp"
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const products = [
   {
@@ -248,6 +252,16 @@ const subtotal = computed(() => {
 
 const tax = computed(() => subtotal.value * 0.1);
 const total = computed(() => subtotal.value + tax.value);
+
+const proceedToCheckout = () => {
+  if (cart.value.length > 0) {
+    // Encode the cart data
+    const encodedCart = btoa(JSON.stringify(cart.value))
+    // Navigate to the checkout page with the encoded cart data
+    router.push(`/checkout/${encodedCart}`)
+  }
+}
+
 </script>
 
 <style scoped>

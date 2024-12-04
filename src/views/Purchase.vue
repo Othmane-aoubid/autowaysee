@@ -1,39 +1,74 @@
 <template>
   <div class="min-h-screen bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto" style="padding-top: 3rem;">
-      <h1 class="text-4xl font-bold text-black mb-8 text-center" style="color: #eab308">
+    <div class="max-w-7xl mx-auto" style="padding-top: 3rem">
+      <h1
+        class="text-4xl font-bold text-black mb-8 text-center"
+        style="color: #eab308"
+      >
         AutoWaysee
       </h1>
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <!-- Product List -->
-        <div class="lg:col-span-2">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div
-              v-for="product in products"
-              :key="product.id"
-              class="bg-white rounded-lg shadow-md overflow-hidden"
-            >
-              <img
-                :src="product.image"
-                :alt="product.name"
-                class="w-full h-48 object-cover"
-                height=200
-                width=300
-              />
-              <div class="p-4">
-                <h2 class="text-xl font-semibold text-black mb-2">
-                  {{ product.name }}
-                </h2>
-                <p class="text-gray-600 mb-4">
-                  ${{ product.price.toFixed(2) }}
-                </p>
-                <button
-                  @click="addToCart(product)"
-                  class="w-full bg-eab308 text-white py-2 px-4 rounded-md font-semibold hover:bg-opacity-90 transition-colors"
-                >
-                  Add to Cart
-                </button>
+        <!-- Product and Services List -->
+        <div class="lg:col-span-2 space-y-8">
+          <!-- Car Parts Section -->
+          <div>
+            <h2 class="text-2xl font-semibold text-black mb-4">Car Parts</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div
+                v-for="product in products"
+                :key="product.id"
+                class="bg-white rounded-lg shadow-md overflow-hidden"
+              >
+                <img
+                  :src="product.image"
+                  :alt="product.name"
+                  class="w-full h-48 object-cover"
+                />
+                <div class="p-4">
+                  <h3 class="text-xl font-semibold text-black mb-2">
+                    {{ product.name }}
+                  </h3>
+                  <p class="text-gray-600 mb-4">
+                    ${{ product.price.toFixed(2) }}
+                  </p>
+                  <button
+                    @click="addToCart(product)"
+                    class="w-full bg-eab308 text-white py-2 px-4 rounded-md font-semibold hover:bg-opacity-90 transition-colors"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Car Services, Maintenance, and Repairs Section -->
+          <div>
+            <h2 class="text-2xl font-semibold text-black mb-4">
+              Services, Maintenance, and Repairs
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div
+                v-for="service in services"
+                :key="service.id"
+                class="bg-white rounded-lg shadow-md overflow-hidden"
+              >
+                <div class="p-4">
+                  <h3 class="text-xl font-semibold text-black mb-2">
+                    {{ service.name }}
+                  </h3>
+                  <p class="text-gray-600 mb-2">{{ service.description }}</p>
+                  <p class="text-black font-semibold mb-4">
+                    ${{ service.price.toFixed(2) }}
+                  </p>
+                  <button
+                    @click="addToCart(service)"
+                    class="w-full bg-eab308 text-white py-2 px-4 rounded-md font-semibold hover:bg-opacity-90 transition-colors"
+                  >
+                    Book Service
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -114,17 +149,10 @@
 
 <script setup>
 import { ref, computed } from "vue";
-import {
-  ShoppingCartIcon,
-  MinusIcon,
-  PlusIcon,
-  TrashIcon,
-} from "lucide-vue-next";
-import AirFilter from "../assets/images/item2.webp"
+import OilFilter from "../assets/images/item2.webp"
 import BreakPads from "../assets/images/item3.webp"
+import AirFilter from "../assets/images/item4.webp"
 import SparksPlug from "../assets/images/item1.webp"
-import OilFilter from "../assets/images/item4.webp"
-
 
 const products = [
   {
@@ -153,14 +181,45 @@ const products = [
   },
 ];
 
+const services = [
+  {
+    id: 101,
+    name: "Oil Change",
+    price: 50.0,
+    description: "Full synthetic oil change service",
+    type: "service",
+  },
+  {
+    id: 102,
+    name: "Brake Service",
+    price: 150.0,
+    description: "Brake pad replacement and rotor inspection",
+    type: "service",
+  },
+  {
+    id: 103,
+    name: "Tire Rotation",
+    price: 40.0,
+    description: "Rotate and balance all four tires",
+    type: "service",
+  },
+  {
+    id: 104,
+    name: "Engine Tune-up",
+    price: 200.0,
+    description: "Comprehensive engine performance service",
+    type: "service",
+  },
+];
+
 const cart = ref([]);
 
-const addToCart = (product) => {
-  const existingItem = cart.value.find((item) => item.id === product.id);
+const addToCart = (item) => {
+  const existingItem = cart.value.find((i) => i.id === item.id);
   if (existingItem) {
     existingItem.quantity++;
   } else {
-    cart.value.push({ ...product, quantity: 1 });
+    cart.value.push({ ...item, quantity: 1 });
   }
 };
 

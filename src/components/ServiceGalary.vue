@@ -19,7 +19,11 @@
             <button
               class="px-6 py-2 bg-white text-black hover:bg-gray-100 transition-colors rounded"
             >
-              Shop Now
+            <router-link
+            to="/Purchase"
+            class="text-white font-script text-3xl"
+            style="color: #eab308"
+          >Shop Now</router-link>
             </button>
           </div>
         </div>
@@ -43,7 +47,11 @@
             <button
               class="px-6 py-2 bg-white text-black hover:bg-gray-100 transition-colors rounded"
             >
-              Shop Now
+            <router-link
+            to="/Purchase"
+            class="text-white font-script text-3xl"
+            style="color: #eab308"
+          >Shop Now</router-link>
             </button>
           </div>
         </div>
@@ -67,7 +75,12 @@
             <button
               class="px-6 py-2 bg-white text-black hover:bg-gray-100 transition-colors rounded"
             >
-              Shop Now
+            <router-link
+            to="/Purchase"
+            class="text-white font-script text-3xl"
+            style="color: #eab308"
+          >Shop Now</router-link>
+              
             </button>
           </div>
         </div>
